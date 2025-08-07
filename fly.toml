@@ -1,0 +1,26 @@
+app = "nombre de tu app"
+primary_region = "gdl"
+
+[build]
+image = "n8nio/n8n"
+
+[env]
+WEBHOOK_URL = "https://nombre_de_tu_app.fly.dev"
+N8N_BASIC_AUTH_ACTIVE = "true"
+N8N_BASIC_AUTH_USER = "admin"
+N8N_BASIC_AUTH_PASSWORD = "tusecreto_crea_una_comtraseña"
+N8N_HOST = "0.0.0.0"
+N8N_PORT = "5678"
+N8N_PROTOCOL = "http"
+
+[[mounts]]
+source = "datos_n8n"
+destination = "/home/node/.n8n"
+
+[http_service]
+internal_port = 5678
+force_https = true
+auto_start_machines = true
+auto_stop_machines = true
+min_machines_running = 0
+max_machines_running = 2
